@@ -5,11 +5,12 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Keyboard : MonoBehaviour
 {
+    [Header("LIST OF LETTER KEYS")]
     [SerializeField] private List<Key> keys = new List<Key>();
 
     private string input;
 
-    public event Action<string> OnKeyboardInputChanged;
+    public event Action<string, char> OnKeyboardInputChanged;
 
     private void Start()
     {
@@ -19,7 +20,17 @@ public class Keyboard : MonoBehaviour
     public void AddKeyCharacterToInput(char character)
     {
         input += character;
-        OnKeyboardInputChanged?.Invoke(input);
+        OnKeyboardInputChanged?.Invoke(input, input[input.Length - 1]);
+    }
+
+    public void ResetKeyboardInput()
+    {
+        input = string.Empty;
+    }
+
+    public void RemoveLastLetterFromInput()
+    {
+        input = input.Remove(input.Length - 1);
     }
 
     private void SetUpKeysCharacter()

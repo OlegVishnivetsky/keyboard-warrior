@@ -92,9 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCharacter: 65
-  rectTransform: {fileID: 424023743196919126}
-  width: 1000
-  height: 1000
+  keyboard: {fileID: 0}
 --- !u!114 &424023743196919129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +205,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

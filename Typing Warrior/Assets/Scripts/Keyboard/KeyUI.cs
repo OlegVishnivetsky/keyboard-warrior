@@ -5,9 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Key))]
 public class KeyUI : MonoBehaviour
 {
-    private Key key;
-
+    [Header("TEXT COMPONENTS")]
     [SerializeField] private TextMeshProUGUI keyCharacterText;
+
+    private Key key;
 
     private void Awake()
     {
