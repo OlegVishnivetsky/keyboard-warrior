@@ -10,6 +10,8 @@ public class QueueOfEnemies : MonoBehaviour
 
     private Queue<Enemy> enemies = new Queue<Enemy>();
 
+    private Enemy currentActiveEnemy;
+
     public event Action<Enemy> OnNextEnemyChanged;
 
     private void Start()
@@ -20,8 +22,18 @@ public class QueueOfEnemies : MonoBehaviour
 
     public Enemy GetNextEnemy()
     {
+        if (currentActiveEnemy != null)
+        {
+            currentActiveEnemy.gameObject.SetActive(false);
+        }
+
         Enemy nextEnemy = enemies.Dequeue();
         nextEnemy.gameObject.SetActive(true);
+        nextEnemy.appearanceTween.Fade();
+
+        enemies.Enqueue(nextEnemy);
+
+        currentActiveEnemy = nextEnemy;
 
         OnNextEnemyChanged?.Invoke(nextEnemy);
 
