@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f1867753c1d9742aaafa639a736d5e, type: 3}
-  m_Name: TestItem
+  m_Name: MagicCandy
   m_EditorClassIdentifier: 
+  itemName: MagicCandy
+  description: '+10 to max health
+
+'
+  icon: {fileID: 21300000, guid: 2085e3b51bb98654cb3d7945a218b908, type: 3}
   itemStatModifications:
-  - value: 20
+  - value: 10
     statToModify: 0
     modificationType: 0
-  - value: 0
-    statToModify: 1
-    modificationType: 0
-  - value: 0
-    statToModify: 2
-    modificationType: 1

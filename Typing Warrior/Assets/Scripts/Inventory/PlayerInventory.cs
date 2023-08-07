@@ -1,40 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+[RequireComponent(typeof(Player))]
+public class PlayerInventory : ItemContainer
 {
-    [SerializeField] private Player player;
-    [SerializeField] private List<Item> items = new List<Item>();
+    private Player player;
 
-    private IEnumerator Start()
+    private void Awake()
     {
-        UpdateItemsStatModification();
-
-        yield return new WaitForSeconds(4);
-
-        RemoveItem(items[0]);
+        player = GetComponent<Player>();
     }
 
-    public void AddItem(Item itemToAdd)
+    private void Start()
     {
-        items.Add(itemToAdd);
-        UpdateItemsStatModification();
+        UpdateItemsStatModifications();
     }
 
-    public void RemoveItem(Item itemToRemove)
+    public override void AddItem(ItemDetailsSO itemToAdd)
     {
-        items.Remove(itemToRemove);
-        UpdateItemsStatModification();
+        base.AddItem(itemToAdd);
+        UpdateItemsStatModifications();
     }
 
-    public void UpdateItemsStatModification()
+    public override void RemoveItem(ItemDetailsSO itemToRemove)
+    {
+        base.RemoveItem(itemToRemove);
+        UpdateItemsStatModifications();
+    }
+
+    public void UpdateItemsStatModifications()
     {
         player.ResetPlayerStats();
 
-        foreach (Item item in items)
+        foreach (ItemDetailsSO item in items)
         {
-            foreach (ItemStatModification itemStatModification in item.GetItemDetails().itemStatModifications)
+            foreach (ItemStatModification itemStatModification in item.itemStatModifications)
             {
                 switch (itemStatModification.statToModify)
                 {
