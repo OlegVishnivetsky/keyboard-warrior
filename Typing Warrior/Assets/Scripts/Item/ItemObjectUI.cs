@@ -23,6 +23,6 @@ public class ItemObjectUI : MonoBehaviour
 
     public void UpdateItemObjectUI(ItemDetailsSO itemDetails)
     {
-        itemImage.sprite = itemDetails.icon;
+        itemImage.sprite = Resources.Load<Sprite>(itemDetails.iconPath);
     }
 }

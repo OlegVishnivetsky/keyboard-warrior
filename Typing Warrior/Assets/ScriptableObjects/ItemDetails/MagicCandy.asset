@@ -16,7 +16,7 @@ MonoBehaviour:
   description: '+10 to max health
 
 '
-  icon: {fileID: 21300000, guid: 2085e3b51bb98654cb3d7945a218b908, type: 3}
+  iconPath: Textures/ItemIcons/16x16/candy_02a
   itemStatModifications:
   - value: 10
     statToModify: 0

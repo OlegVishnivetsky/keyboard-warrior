@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerTyping : MonoBehaviour
 {
     [Header("MAIN COMPONENTS")]
-    [SerializeField] private Keyboard keyboard;
+    [SerializeField] private Player player;
     [SerializeField] private QueueOfEnemies queueOfEnemies;
 
     private Enemy currentEnemy;
@@ -17,21 +17,21 @@ public class PlayerTyping : MonoBehaviour
 
     private void OnEnable()
     {
-        keyboard.OnKeyboardInputChanged += Keyboard_OnKeyboardInputChanged;
+        Keyboard.Instance.OnKeyboardInputChanged += Keyboard_OnKeyboardInputChanged;
 
-        queueOfEnemies.OnNextEnemyChanged += QueueOfEnemies_OnNextEnemyChanged;
+        queueOfEnemies.OnNextEnemyActivated += QueueOfEnemies_OnNextEnemyActivated;
     }
 
     private void OnDisable()
     {
-        keyboard.OnKeyboardInputChanged -= Keyboard_OnKeyboardInputChanged;
+        Keyboard.Instance.OnKeyboardInputChanged -= Keyboard_OnKeyboardInputChanged;
 
-        queueOfEnemies.OnNextEnemyChanged -= QueueOfEnemies_OnNextEnemyChanged;
+        queueOfEnemies.OnNextEnemyActivated -= QueueOfEnemies_OnNextEnemyActivated;
     }
 
-    private void QueueOfEnemies_OnNextEnemyChanged(Enemy nextEnemy)
+    private void QueueOfEnemies_OnNextEnemyActivated()
     {
-        currentEnemy = nextEnemy;
+        currentEnemy = queueOfEnemies.GetCurrentEnemy();
     }
 
     private void Keyboard_OnKeyboardInputChanged(string keyboardInput, char lastInputChar)
@@ -49,12 +49,7 @@ public class PlayerTyping : MonoBehaviour
             currentCorrectCharIndex = 0;
             playerWord = string.Empty;
 
-            currentEnemy.appearanceTween.Hide(() =>
-            {
-                queueOfEnemies.GetNextEnemy();
-            });
-
-            return;
+            currentEnemy.GetComponent<Health>().TakeDamage(player.Damage.GetValue());
         }
     }
 

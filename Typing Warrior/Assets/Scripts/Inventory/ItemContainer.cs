@@ -1,20 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemContainer : MonoBehaviour
+public abstract class ItemContainer : MonoBehaviour
 {
-    [SerializeField] protected List<ItemDetailsSO> items = new List<ItemDetailsSO>();
-    [SerializeField] protected SaveSystem saveSystem;
+    protected List<ItemDetailsSO> items = new List<ItemDetailsSO>();
 
-    public event Action OnItemContainerLoaded;
-
-    private void Start()
-    {
-        items = saveSystem.LoadItemContainer("items");
-        OnItemContainerLoaded?.Invoke();
-    }
+    public event Action OnItemsLoaded;
 
     public virtual List<ItemDetailsSO> GetItems()
     {
@@ -29,5 +21,11 @@ public class ItemContainer : MonoBehaviour
     public virtual void RemoveItem(ItemDetailsSO itemToRemove)
     {
         items.Remove(itemToRemove);
+    }
+
+    public virtual void LoadPlayerInventoryItems(string key)
+    {
+        items = SaveSystem.Instance.Load<List<ItemDetailsSO>>(key);
+        OnItemsLoaded?.Invoke();
     }
 }

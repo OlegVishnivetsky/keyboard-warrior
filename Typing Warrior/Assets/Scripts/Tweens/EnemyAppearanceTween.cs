@@ -13,11 +13,12 @@ public class EnemyAppearanceTween : MonoBehaviour
 
     private void OnEnable()
     {
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
+        Fade();
     }
 
     public void Fade()
     {
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
         transform.localScale = new Vector3(0.8f, 0.8f, 1);
 
         LeanTween.scale(gameObject, Vector3.one, duration).setEase(scaleEase);

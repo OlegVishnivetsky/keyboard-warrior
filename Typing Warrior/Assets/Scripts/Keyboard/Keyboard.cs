@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Keyboard : MonoBehaviour
+public class Keyboard : SingletonMonobehaviour<Keyboard>
 {
     [Header("LIST OF LETTER KEYS")]
     [SerializeField] private List<Key> keys = new List<Key>();
+
+    public bool IsActive { get; set; } 
 
     private string input;
 
@@ -14,11 +16,17 @@ public class Keyboard : MonoBehaviour
 
     private void Start()
     {
+        IsActive = true;
         SetUpKeysCharacter();
     }
 
     public void AddKeyCharacterToInput(char character)
     {
+        if (!IsActive)
+        {
+            return;
+        }
+
         input += character;
         OnKeyboardInputChanged?.Invoke(input, input[input.Length - 1]);
     }

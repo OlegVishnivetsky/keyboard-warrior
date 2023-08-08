@@ -5,54 +5,83 @@ using UnityEngine;
 public class QueueOfEnemies : MonoBehaviour
 {
     [Header("MAIN PARAMETERS")]
-    [SerializeField] private int numberOfEnemies;
-    [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private List<EnemyDetailsSO> enemyDetailsList;
 
-    private Queue<Enemy> enemies = new Queue<Enemy>();
+    private Health enemyHealth;
 
-    private Enemy currentActiveEnemy;
+    public event Action OnNextEnemyActivated;
 
-    public event Action<Enemy> OnNextEnemyChanged;
+    private void Awake()
+    {
+        enemyHealth = enemy.gameObject.GetComponent<Health>();
+    }
+
+    private void OnEnable()
+    {
+        enemyHealth.OnHealthWasOver += EnemyHealth_OnHealthWasOver;
+    }
+
+    private void OnDisable()
+    {
+        enemyHealth.OnHealthWasOver -= EnemyHealth_OnHealthWasOver;
+    }
 
     private void Start()
     {
-        GenerateQueueOfEnemies(numberOfEnemies);
-        GetNextEnemy();
+        enemy.gameObject.SetActive(false);
+        ActivateNextEnemy();
     }
 
-    public Enemy GetNextEnemy()
+    private void EnemyHealth_OnHealthWasOver()
     {
-        if (currentActiveEnemy != null)
+        ActivateNextEnemy();
+    }
+
+    public Enemy GetCurrentEnemy()
+    {
+        return enemy;
+    }
+
+    public void ActivateNextEnemy()
+    {
+        if (enemy.gameObject.activeInHierarchy)
         {
-            currentActiveEnemy.gameObject.SetActive(false);
+            Keyboard.Instance.IsActive = false;
+
+            enemy.appearanceTween.Hide(() =>
+            {
+                enemy.appearanceTween.Fade(() =>
+                {
+                    enemy.GenerateNewWord();
+                    enemy.SetUpEnemyHealth();
+                    OnNextEnemyActivated?.Invoke();
+
+                    Keyboard.Instance.IsActive = true;
+                });
+            });
+
+            return;
         }
 
-        Enemy nextEnemy = enemies.Dequeue();
-        nextEnemy.gameObject.SetActive(true);
-        nextEnemy.appearanceTween.Fade();
-
-        enemies.Enqueue(nextEnemy);
-
-        currentActiveEnemy = nextEnemy;
-
-        OnNextEnemyChanged?.Invoke(nextEnemy);
-
-        return nextEnemy;
+        ActivateEnemy();
     }
 
-    public void GenerateQueueOfEnemies(int numberOfEnemies)
+    private void ActivateEnemy()
     {
-        for (int i = 0; i < numberOfEnemies; i++)
-        {
-            InstantiateEnemy();
-        }
+        EnemyDetailsSO enemyDetails = GetRandomEnemyDetails();
+
+        enemy.gameObject.SetActive(true);
+        enemy.SetEnemyDetails(enemyDetails);
+        enemy.SetUpEnemyHealth();
+
+        OnNextEnemyActivated?.Invoke();
     }
 
-    public void InstantiateEnemy()
+    private EnemyDetailsSO GetRandomEnemyDetails()
     {
-        Enemy enemyObject = Instantiate(enemyPrefab, transform);
-        enemyObject.gameObject.SetActive(false);
+        int randomIndex = UnityEngine.Random.Range(0, enemyDetailsList.Count);
 
-        enemies.Enqueue(enemyObject);
+        return enemyDetailsList[randomIndex];
     }
 }

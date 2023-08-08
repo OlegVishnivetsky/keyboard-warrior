@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
 
@@ -8,9 +9,21 @@ public class Player : MonoBehaviour
     [SerializeField] private int playerBaseDamage;
     [SerializeField] private int playerBaseArmor;
 
+    private Health health;
+
     public PlayerStat Health { get; private set; }
     public PlayerStat Damage { get; private set; }
     public PlayerStat Armor { get; private set; }
+
+    private void Awake()
+    {
+        health = GetComponent<Health>();
+    }
+
+    private void Start()
+    {
+        health.SetCurrentHealth(playerBaseHealth);
+    }
 
     public void ResetPlayerStats()
     {

@@ -1,57 +1,32 @@
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveSystem : MonoBehaviour
+public class SaveSystem : SingletonMonobehaviour<SaveSystem>
 {
-    [SerializeField] private ItemsCollectionSO allItemsCollection;
-
-    [SerializeField] private List<string> savedItemsNames = new List<string>();
-
-    public void SaveItemContainer(ItemContainer itemContainer, string key)
+    public void Save<T>(T objectToSave, string key)
     {
-        savedItemsNames.Clear();
-
-        foreach (ItemDetailsSO item in itemContainer.GetItems())
-        {
-            savedItemsNames.Add(item.itemName);
-        }
-
         string path = Application.persistentDataPath + "/" + key;
-        string json = JsonConvert.SerializeObject(savedItemsNames, Formatting.Indented);
+        string json = JsonConvert.SerializeObject(objectToSave, Formatting.Indented);
 
         File.WriteAllText(path, json);
     }
 
-    public List<ItemDetailsSO> LoadItemContainer(string key)
+    public T Load<T>(string key)
     {
-        List<ItemDetailsSO> loadedItemDetailsList = new List<ItemDetailsSO>();
+        T objectToLoad;
 
         string path = Application.persistentDataPath + "/" + key;
 
         if (!File.Exists(path))
         {
-            return null;
+            return default;
         }
 
         string json = File.ReadAllText(path);
 
-        savedItemsNames = JsonConvert.DeserializeObject<List<string>>(json);
+        objectToLoad = JsonConvert.DeserializeObject<T>(json);
 
-        foreach (string itemName in savedItemsNames)
-        {
-            foreach (ItemDetailsSO itemDetails in allItemsCollection.items)
-            {
-                if (itemName == itemDetails.itemName)
-                {
-                    loadedItemDetailsList.Add(itemDetails);
-                }
-            }
-        }
-
-        Debug.Log(loadedItemDetailsList.Count);
-
-        return loadedItemDetailsList;
+        return objectToLoad;
     }
 }
