@@ -4,4 +4,6 @@ using UnityEngine;
 public class EnemyDetailsSO : ScriptableObject
 {
     public int health;
+    public int damage;
+    public string enemyName;
 }

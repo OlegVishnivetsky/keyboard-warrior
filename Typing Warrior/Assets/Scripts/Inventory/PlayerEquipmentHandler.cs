@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerEquipmentHandler : MonoBehaviour
 {
+    [Header("MAIN COMPONENTS")]
     [SerializeField] private Player player;
 
     private List<ItemDetailsSO> items = new List<ItemDetailsSO>();
@@ -26,13 +27,18 @@ public class PlayerEquipmentHandler : MonoBehaviour
                         player.Health.ModifyValue(itemStatModification.value,
                             itemStatModification.modificationType);
                         break;
+
                     case StatToModify.Damage:
                         player.Damage.ModifyValue(itemStatModification.value,
                             itemStatModification.modificationType);
                         break;
+
                     case StatToModify.Armor:
                         player.Armor.ModifyValue(itemStatModification.value,
                             itemStatModification.modificationType);
+                        break;
+
+                    default:
                         break;
                 }
             }

@@ -5,6 +5,7 @@ public class PlayerTyping : MonoBehaviour
 {
     [Header("MAIN COMPONENTS")]
     [SerializeField] private Player player;
+    [SerializeField] private PlayerAttackEffect attackEffect;
     [SerializeField] private QueueOfEnemies queueOfEnemies;
 
     private Enemy currentEnemy;
@@ -20,6 +21,8 @@ public class PlayerTyping : MonoBehaviour
         Keyboard.Instance.OnKeyboardInputChanged += Keyboard_OnKeyboardInputChanged;
 
         queueOfEnemies.OnNextEnemyActivated += QueueOfEnemies_OnNextEnemyActivated;
+
+        attackEffect.OnAttackEffectAnimationEnded += AttackEffect_OnAttackEffectAnimationEnded;
     }
 
     private void OnDisable()
@@ -27,6 +30,8 @@ public class PlayerTyping : MonoBehaviour
         Keyboard.Instance.OnKeyboardInputChanged -= Keyboard_OnKeyboardInputChanged;
 
         queueOfEnemies.OnNextEnemyActivated -= QueueOfEnemies_OnNextEnemyActivated;
+
+        attackEffect.OnAttackEffectAnimationEnded -= AttackEffect_OnAttackEffectAnimationEnded;
     }
 
     private void QueueOfEnemies_OnNextEnemyActivated()
@@ -49,8 +54,13 @@ public class PlayerTyping : MonoBehaviour
             currentCorrectCharIndex = 0;
             playerWord = string.Empty;
 
-            currentEnemy.GetComponent<Health>().TakeDamage(player.Damage.GetValue());
+            attackEffect.TriggerAttackEffectAnimation();
         }
+    }
+
+    private void AttackEffect_OnAttackEffectAnimationEnded()
+    {
+        currentEnemy.GetComponent<Health>().TakeDamage(player.Damage.GetValue());
     }
 
     private bool IsLastInputCharCorrect(char lastInputChar)

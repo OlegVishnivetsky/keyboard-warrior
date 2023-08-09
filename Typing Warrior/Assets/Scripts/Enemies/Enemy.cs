@@ -20,8 +20,6 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        enemyWord = WordCollection.Instance.GetRandomWordFromCollection();
-
         health.OnHealthChanged += Health_OnHealthChanged;
     }
 
@@ -44,6 +42,11 @@ public class Enemy : MonoBehaviour
     {
         health.SetMaxHeallth(enemyDetails.health);
         health.SetCurrentHealth(enemyDetails.health);
+    }
+
+    public EnemyDetailsSO GetEnemyDetails()
+    {
+        return enemyDetails;
     }
 
     public void SetEnemyDetails(EnemyDetailsSO enemyDetails)

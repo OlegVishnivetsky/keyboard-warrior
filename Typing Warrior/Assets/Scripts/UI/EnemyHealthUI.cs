@@ -1,11 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyHealthUI : MonoBehaviour
 {
+    [Header("UI COMPONENTS")]
     [SerializeField] private Slider healthSlider;
+    [SerializeField] private TextMeshProUGUI enemyHealthText;
+    
+    [Header("OTHER COMPONENTS")]
     [SerializeField] private Health enemyHealth;
-    [SerializeField] private QueueOfEnemies queueOfEnemies;
 
     private void OnEnable()
     {
@@ -26,7 +30,18 @@ public class EnemyHealthUI : MonoBehaviour
 
     private void EnemyHealth_OnHealthChanged(int currentHealth)
     {
+        UpdateHealthSliderValues(currentHealth);
+        UpdateCurrentAndMaxHealthTexts(currentHealth);
+    }
+
+    private void UpdateHealthSliderValues(int currentHealth)
+    {
         healthSlider.maxValue = enemyHealth.GetMaxHealth();
         healthSlider.value = currentHealth;
+    }
+
+    private void UpdateCurrentAndMaxHealthTexts(int currentHealth)
+    {
+        enemyHealthText.text = $"{currentHealth}/{enemyHealth.GetMaxHealth()}";
     }
 }
