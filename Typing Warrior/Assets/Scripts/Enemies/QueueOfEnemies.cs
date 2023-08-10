@@ -51,11 +51,11 @@ public class QueueOfEnemies : MonoBehaviour
 
             enemy.appearanceTween.Hide(() =>
             {
+                SetRandomEnemyDetails();
+
                 enemy.appearanceTween.Fade(() =>
                 {
-                    enemy.GenerateNewWord();
-                    enemy.SetUpEnemyHealth();
-                    OnNextEnemyActivated?.Invoke();
+                    SetUpNextEnemy();
 
                     Keyboard.Instance.IsActive = true;
                 });
@@ -64,24 +64,24 @@ public class QueueOfEnemies : MonoBehaviour
             return;
         }
 
-        ActivateEnemy();
+        enemy.gameObject.SetActive(true);
+        SetRandomEnemyDetails();
+        SetUpNextEnemy();
     }
 
-    private void ActivateEnemy()
+    private void SetUpNextEnemy()
     {
-        EnemyDetailsSO enemyDetails = GetRandomEnemyDetails();
-
-        enemy.gameObject.SetActive(true);
-        enemy.SetEnemyDetails(enemyDetails);
+        enemy.GenerateNewWord();
         enemy.SetUpEnemyHealth();
 
         OnNextEnemyActivated?.Invoke();
     }
 
-    private EnemyDetailsSO GetRandomEnemyDetails()
+    private void SetRandomEnemyDetails()
     {
         int randomIndex = UnityEngine.Random.Range(0, enemyDetailsList.Count);
+        EnemyDetailsSO enemyDetails = enemyDetailsList[randomIndex];
 
-        return enemyDetailsList[randomIndex];
+        enemy.SetEnemyDetails(enemyDetails);
     }
 }

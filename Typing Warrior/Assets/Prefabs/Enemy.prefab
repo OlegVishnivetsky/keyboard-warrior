@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3599427826970115800}
   - component: {fileID: 3599427826970115801}
+  - component: {fileID: 6421794309713421626}
+  - component: {fileID: 1567752441}
   - component: {fileID: 6919638733992229906}
   m_Layer: 0
   m_Name: Enemy
@@ -46,7 +48,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2582065a1ad1abf418aeffd5ab0b784b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3599427827788169670}
   appearanceTween: {fileID: 6919638733992229906}
+--- !u!114 &6421794309713421626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599427826970115783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e08590fc997994a9c30cd85bcde577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1567752441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599427826970115783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b33bca32f1b3624294e7686f4b06f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3599427827788169671}
+  enemyHealth: {fileID: 6421794309713421626}
+  hitColor: {r: 1, g: 0.032075405, b: 0.032075405, a: 1}
+  delayBetweenHit: 0.095
+  amountOfHit: 3
 --- !u!114 &6919638733992229906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +190,7 @@ Animator:
   m_GameObject: {fileID: 3599427827788169668}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7052c8b4bb06f644ea75e62b72afedbd, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

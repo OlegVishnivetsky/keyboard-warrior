@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
+
     private EnemyDetailsSO enemyDetails;
     private Health health;
 
@@ -33,7 +35,7 @@ public class Enemy : MonoBehaviour
         SetUpEnemyHealth();
     }
 
-    private void Health_OnHealthChanged(int obj)
+    private void Health_OnHealthChanged(int currentHealth)
     {
         GenerateNewWord();
     }
@@ -52,6 +54,7 @@ public class Enemy : MonoBehaviour
     public void SetEnemyDetails(EnemyDetailsSO enemyDetails)
     {
         this.enemyDetails = enemyDetails;
+        SetUpEnemyAnimation(this.enemyDetails.animatorController);
     }
 
     public string GetEnemyWord() 
@@ -63,5 +66,10 @@ public class Enemy : MonoBehaviour
     {
         enemyWord = WordCollection.Instance.GetRandomWordFromCollection();
         OnEnemyWordGenerated.Invoke();
+    }
+
+    private void SetUpEnemyAnimation(RuntimeAnimatorController animatorController)
+    {
+        animator.runtimeAnimatorController = animatorController;
     }
 }

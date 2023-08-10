@@ -1,4 +1,5 @@
 using System;
+using System.Transactions;
 using UnityEngine;
 
 public class PlayerTyping : MonoBehaviour
@@ -47,6 +48,10 @@ public class PlayerTyping : MonoBehaviour
             currentCorrectCharIndex++;
 
             OnPlayerTypedCorrectChar?.Invoke(playerWord, currentCorrectCharIndex);
+        }
+        else
+        {
+            player.GetPlayerHealth().TakeDamage(currentEnemy.GetEnemyDetails().damage);
         }
 
         if (IsPlayerWordCorrect())

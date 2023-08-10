@@ -20,9 +20,25 @@ public class Player : MonoBehaviour
         health = GetComponent<Health>();
     }
 
+    private void OnEnable()
+    {
+        health.OnHealthWasOver += Health_OnHealthWasOver;
+    }
+
+    private void OnDisable()
+    {
+        health.OnHealthWasOver += Health_OnHealthWasOver;
+    }
+
     private void Start()
     {
-        health.SetCurrentHealth(playerBaseHealth);
+        health.SetMaxHeallth(Health.GetValue());
+        health.SetCurrentHealth(Health.GetValue());
+    }
+
+    public Health GetPlayerHealth()
+    {
+        return health;
     }
 
     public void ResetPlayerStats()
@@ -30,5 +46,10 @@ public class Player : MonoBehaviour
         Health = new PlayerStat(playerBaseHealth);
         Damage = new PlayerStat(playerBaseDamage);
         Armor = new PlayerStat(playerBaseArmor);
+    }
+
+    private void Health_OnHealthWasOver()
+    {
+        Debug.Log("Player died");
     }
 }

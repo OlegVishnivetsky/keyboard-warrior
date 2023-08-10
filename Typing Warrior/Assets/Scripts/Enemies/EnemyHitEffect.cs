@@ -12,8 +12,6 @@ public class EnemyHitEffect : MonoBehaviour
     [SerializeField] private float delayBetweenHit;
     [SerializeField] private int amountOfHit;
 
-    private Color defaultColor;
-
     private void OnEnable()
     {
         enemyHealth.OnHealthChanged += EnemyHealth_OnHealthChanged;
@@ -22,11 +20,6 @@ public class EnemyHitEffect : MonoBehaviour
     private void OnDisable()
     {
         enemyHealth.OnHealthChanged -= EnemyHealth_OnHealthChanged;
-    }
-
-    private void Start()
-    {
-        defaultColor = spriteRenderer.color;
     }
 
     private void EnemyHealth_OnHealthChanged(int currentHealth)
