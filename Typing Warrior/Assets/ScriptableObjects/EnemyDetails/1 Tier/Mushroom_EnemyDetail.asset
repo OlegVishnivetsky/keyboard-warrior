@@ -15,4 +15,6 @@ MonoBehaviour:
   enemyName: Evil Mushroom
   health: 20
   damage: 20
+  delayBeforeAttack: 10
   animatorController: {fileID: 9100000, guid: 9f15ad2dfb202dd46816f1ae0907d589, type: 2}
+  enemyMaterial: {fileID: 2100000, guid: 3de17dc366651914e84d3cad71009a3c, type: 2}

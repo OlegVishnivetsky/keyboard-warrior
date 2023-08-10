@@ -15,4 +15,6 @@ MonoBehaviour:
   enemyName: Skeleton
   health: 20
   damage: 10
+  delayBeforeAttack: 10
   animatorController: {fileID: 9100000, guid: 7052c8b4bb06f644ea75e62b72afedbd, type: 2}
+  enemyMaterial: {fileID: 2100000, guid: 5736636975cfc1549a63c5ad4026b23c, type: 2}

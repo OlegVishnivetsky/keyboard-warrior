@@ -60,6 +60,7 @@ public class PlayerTyping : MonoBehaviour
             playerWord = string.Empty;
 
             attackEffect.TriggerAttackEffectAnimation();
+            currentEnemy.GetEnemyAttack().ResetDelayBeforeAttack();
         }
     }
 

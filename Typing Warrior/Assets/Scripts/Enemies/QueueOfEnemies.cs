@@ -11,6 +11,7 @@ public class QueueOfEnemies : MonoBehaviour
     private Health enemyHealth;
 
     public event Action OnNextEnemyActivated;
+    public event Action OnEnemyHided;
 
     private void Awake()
     {
@@ -48,6 +49,8 @@ public class QueueOfEnemies : MonoBehaviour
         if (enemy.gameObject.activeInHierarchy)
         {
             Keyboard.Instance.IsActive = false;
+
+            OnEnemyHided?.Invoke();
 
             enemy.appearanceTween.Hide(() =>
             {
