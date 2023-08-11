@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthSliderUI : MonoBehaviour
+public class HealthUI : MonoBehaviour
 {
     [Header("UI COMPONENTS")]
     [SerializeField] private Slider healthSlider;

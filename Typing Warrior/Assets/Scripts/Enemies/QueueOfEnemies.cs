@@ -6,6 +6,7 @@ public class QueueOfEnemies : MonoBehaviour
 {
     [Header("MAIN PARAMETERS")]
     [SerializeField] private Enemy enemy;
+    [SerializeField] private LevelController levelController;
     [SerializeField] private List<EnemyDetailsSO> enemyDetailsList;
 
     private Health enemyHealth;
@@ -46,6 +47,8 @@ public class QueueOfEnemies : MonoBehaviour
 
     public void ActivateNextEnemy()
     {
+        levelController.DecreaseCurrentNumberOfEnemies();
+
         if (enemy.gameObject.activeInHierarchy)
         {
             Keyboard.Instance.IsActive = false;
@@ -54,6 +57,12 @@ public class QueueOfEnemies : MonoBehaviour
 
             enemy.appearanceTween.Hide(() =>
             {
+                if (levelController.GetCurrentNumberOfEnemies() <= 0)
+                {
+                    StaticEventHandler.InvokeLevelCompletedEvent();
+                    return;
+                }
+
                 SetRandomEnemyDetails();
 
                 enemy.appearanceTween.Fade(() =>

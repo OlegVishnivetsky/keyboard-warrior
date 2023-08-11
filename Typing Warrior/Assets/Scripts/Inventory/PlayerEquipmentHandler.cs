@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,19 @@ public class PlayerEquipmentHandler : MonoBehaviour
 
     private List<ItemDetailsSO> items = new List<ItemDetailsSO>();
 
-    private void Start()
+    public event Action OnItemsStatModificationsUpdated;
+
+    private void OnEnable()
+    {
+        player.OnBeforePlayerInitialised += Player_OnBeforePlayerInitialised;
+    }
+
+    private void OnDisable()
+    {
+        player.OnBeforePlayerInitialised -= Player_OnBeforePlayerInitialised;
+    }
+
+    private void Player_OnBeforePlayerInitialised()
     {
         UpdateItemsStatModifications();
     }
@@ -43,5 +56,7 @@ public class PlayerEquipmentHandler : MonoBehaviour
                 }
             }
         }
+
+        OnItemsStatModificationsUpdated?.Invoke();
     }
 }

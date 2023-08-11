@@ -14,5 +14,4 @@ public class EnemyDetailsSO : ScriptableObject
 
     [Space(5)]
     public RuntimeAnimatorController animatorController;
-    public Material enemyMaterial;
 }

@@ -1,18 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int currentLevel = 1;
+
+    private int numberOfEnemiesPerLevel;
+    private int currentNumberOfEnemies;
+
+    public event Action<int, int> OnNumberOfEnemiesChanged;
+
+    private void Start()
     {
-        
+        CalculateNumberOfEnemiesForThisLevel();
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetNumberOfEnemiesPerLevel()
     {
-        
+        return numberOfEnemiesPerLevel;
+    }
+
+    public int GetCurrentNumberOfEnemies()
+    {
+        return currentNumberOfEnemies;
+    }
+
+    public void DecreaseCurrentNumberOfEnemies()
+    {
+        currentNumberOfEnemies--;
+        OnNumberOfEnemiesChanged?.Invoke(currentNumberOfEnemies, numberOfEnemiesPerLevel);
+    }
+
+    private void CalculateNumberOfEnemiesForThisLevel()
+    {
+        numberOfEnemiesPerLevel = Settings.defaultNumberOfEnemies;
+        int numberOfEnemiesToAddMultiplier = currentLevel / Settings.numberOfLevelToAddEnemies;
+
+        numberOfEnemiesPerLevel += Settings.numberOfEnemiesToAdd * numberOfEnemiesToAddMultiplier;
+        currentNumberOfEnemies = numberOfEnemiesPerLevel;
     }
 }

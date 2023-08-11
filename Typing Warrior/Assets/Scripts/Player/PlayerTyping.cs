@@ -1,5 +1,4 @@
 using System;
-using System.Transactions;
 using UnityEngine;
 
 public class PlayerTyping : MonoBehaviour

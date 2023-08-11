@@ -60,8 +60,8 @@ public class Enemy : MonoBehaviour
     {
         this.enemyDetails = enemyDetails;
 
-        SetUpEnemyAnimation(this.enemyDetails.animatorController);
-        SetUpEnemyMaterial(this.enemyDetails.enemyMaterial);
+        SetUpEnemyAnimatorController(this.enemyDetails);
+        SetUpRandomEnemyMaterial();
     }
 
     public string GetEnemyWord() 
@@ -80,13 +80,16 @@ public class Enemy : MonoBehaviour
         OnEnemyWordGenerated.Invoke();
     }
 
-    private void SetUpEnemyAnimation(RuntimeAnimatorController animatorController)
+    private void SetUpEnemyAnimatorController(EnemyDetailsSO enemyDetails)
     {
-        animator.runtimeAnimatorController = animatorController;
+        animator.runtimeAnimatorController = enemyDetails.animatorController;
     }
 
-    private void SetUpEnemyMaterial(Material material)
+    private void SetUpRandomEnemyMaterial()
     {
-        spriteRenderer.material = material;
+        int randomMaterialNumber = UnityEngine.Random.Range(0, GameResources.Instance.enemyMaterials.Count);
+        Material enemyMaterial = GameResources.Instance.enemyMaterials[randomMaterialNumber];
+
+        spriteRenderer.material = enemyMaterial;
     }
 }

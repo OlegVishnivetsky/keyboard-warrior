@@ -1,9 +1,9 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
-
     [Header("PLAYER BASE STATS")]
     [SerializeField] private int playerBaseHealth;
     [SerializeField] private int playerBaseDamage;
@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public PlayerStat Health { get; private set; }
     public PlayerStat Damage { get; private set; }
     public PlayerStat Armor { get; private set; }
+
+    public event Action OnBeforePlayerInitialised;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        OnBeforePlayerInitialised?.Invoke();    
         health.SetMaxHeallth(Health.GetValue());
         health.SetCurrentHealth(Health.GetValue());
     }
@@ -50,6 +53,6 @@ public class Player : MonoBehaviour
 
     private void Health_OnHealthWasOver()
     {
-        Debug.Log("Player died");
+        StaticEventHandler.InvokePlayerLostEvent();
     }
 }
