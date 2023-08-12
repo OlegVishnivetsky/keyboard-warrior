@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class ItemDispenserUI : MonoBehaviour
 {
-    [SerializeField] private ItemObject itemObject;
+    [Header("MAIN COMPONENTS")]
+    [SerializeField] private ItemObjectUI itemObjectUI;
     [SerializeField] private ItemDispenser itemDispenser;
+    [SerializeField] private ScaleUITween scaleTween;
 
     private void OnEnable()
     {
@@ -17,6 +19,7 @@ public class ItemDispenserUI : MonoBehaviour
 
     private void ItemDispenser_OnItemDispensed(ItemDetailsSO item)
     {
-        itemObject.SetItemDetails(item);
+        itemObjectUI.UpdateItemObjectUI(item);
+        scaleTween.ScaleIn();
     }
 }

@@ -8,12 +8,18 @@ public class ItemObjectUI : MonoBehaviour
 
     private void OnEnable()
     {
-        itemObject.OnItemDetailsSetted += ItemObject_OnItemDetailsSetted;
+        if (itemObject != null)
+        {
+            itemObject.OnItemDetailsSetted += ItemObject_OnItemDetailsSetted;
+        }
     }
 
     private void OnDisable()
     {
-        itemObject.OnItemDetailsSetted -= ItemObject_OnItemDetailsSetted;
+        if (itemObject != null)
+        {
+            itemObject.OnItemDetailsSetted -= ItemObject_OnItemDetailsSetted;
+        }
     }
 
     private void ItemObject_OnItemDetailsSetted(ItemDetailsSO itemDetails)

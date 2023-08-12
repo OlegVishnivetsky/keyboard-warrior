@@ -23,7 +23,7 @@ public abstract class ItemContainer : MonoBehaviour
         items.Remove(itemToRemove);
     }
 
-    public virtual void LoadPlayerInventoryItems(string key)
+    public virtual void LoadPlayerItems(string key)
     {
         items = SaveSystem.Instance.Load<List<ItemDetailsSO>>(key);
         OnItemsLoaded?.Invoke();

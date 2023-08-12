@@ -10,15 +10,39 @@ public class ItemDispenser : MonoBehaviour
 
     public event Action<ItemDetailsSO> OnItemDispensed;
 
+    private void OnEnable()
+    {
+        StaticEventHandler.OnLevelCompleted += StaticEventHandler_OnLevelCompleted;
+    }
+
+    private void OnDisable()
+    {
+        StaticEventHandler.OnLevelCompleted -= StaticEventHandler_OnLevelCompleted;
+    }
+
+    private void StaticEventHandler_OnLevelCompleted()
+    {
+        Debug.Log("level complete");
+        DispenseItem();
+    }
+
     public void DispenseItem()
     {
-        inventoryItems = SaveSystem.Instance.Load<List<ItemDetailsSO>>(Settings.playerInventoryKey);
+        if (SaveSystem.Instance.Load<List<ItemDetailsSO>>(Settings.playerInventoryKey) == null)
+        {
+            inventoryItems = new List<ItemDetailsSO>();
+        }
+        else
+        {
+            inventoryItems = SaveSystem.Instance.Load<List<ItemDetailsSO>>(Settings.playerInventoryKey);
+        }
 
         int randomItemNumber = UnityEngine.Random.Range(0, allItemsCollection.items.Count);
 
         ItemDetailsSO itemToDispense = allItemsCollection.items[randomItemNumber];
 
         OnItemDispensed?.Invoke(itemToDispense);
+        Debug.Log("item dispensed");
 
         inventoryItems.Add(itemToDispense);
 

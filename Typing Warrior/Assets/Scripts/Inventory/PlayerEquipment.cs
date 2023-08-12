@@ -6,7 +6,7 @@ public class PlayerEquipment : ItemContainer
 
     private void Start()
     {
-        LoadPlayerInventoryItems(Settings.playerEquipmentKey);
+        LoadPlayerItems(Settings.playerEquipmentKey);
     }
 
     public override void AddItem(ItemDetailsSO itemToAdd)

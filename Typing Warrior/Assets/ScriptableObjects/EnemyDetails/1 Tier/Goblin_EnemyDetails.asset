@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Goblin_EnemyDetails
   m_EditorClassIdentifier: 
   enemyName: Goblin
-  health: 3
+  health: 1
   damage: 2
   delayBeforeAttack: 10
   animatorController: {fileID: 9100000, guid: a8d89b388aaf5c04993b5be004a0132c, type: 2}
