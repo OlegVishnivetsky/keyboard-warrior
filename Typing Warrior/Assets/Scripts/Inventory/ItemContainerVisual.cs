@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class ItemContainerVisual : MonoBehaviour
 {
+    [Header("MAIN COMPONENTS")]
     [SerializeField] private ItemContainer itemContainer;
     [SerializeField] private ItemObject itemObjectPrefab;
-    [SerializeField] private Transform itemContainerTransform;
+
+    [Header("TRANSFORM COMPONENT")]
+    [SerializeField] private Transform contentTransform;
 
     private void OnEnable()
     {
@@ -28,7 +31,7 @@ public class ItemContainerVisual : MonoBehaviour
 
         foreach (ItemDetailsSO itemDetails in loadedItems)
         {
-            ItemObject itemObject = Instantiate(itemObjectPrefab, itemContainerTransform);
+            ItemObject itemObject = Instantiate(itemObjectPrefab, contentTransform);
             itemObject.SetItemDetails(itemDetails);
         }
     }

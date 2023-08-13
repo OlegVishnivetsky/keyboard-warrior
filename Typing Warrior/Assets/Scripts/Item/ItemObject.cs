@@ -4,18 +4,24 @@ using UnityEngine.EventSystems;
 
 public class ItemObject : MonoBehaviour, IPointerClickHandler
 {
+    [Header("MAIN COMPONENTS")]
+    [SerializeField] private ItemObjectDragger itemObjectDragger;
+
     private ItemDetailsSO itemDetails;
 
     public event Action<ItemDetailsSO> OnItemDetailsSetted;
 
-    public string GetItemDetails()
+    public ItemDetailsSO GetItemDetails()
     {
-        return itemDetails.name;
+        return itemDetails;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ItemObjectPopupMenuController.Instance.ShowItemObjectPopupMenu(itemDetails);
+        if (!itemObjectDragger.IsDragging)
+        {
+            ItemObjectPopupMenuController.Instance.ShowItemObjectPopupMenu(itemDetails);
+        }
     }
 
     public void SetItemDetails(ItemDetailsSO itemDetails)

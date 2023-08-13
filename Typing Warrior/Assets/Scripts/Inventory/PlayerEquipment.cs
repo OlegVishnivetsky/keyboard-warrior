@@ -16,4 +16,9 @@ public class PlayerEquipment : ItemContainer
             base.AddItem(itemToAdd);
         }
     }
+
+    private void OnApplicationQuit()
+    {
+        SavePlayerItems(Settings.playerEquipmentKey);
+    }
 }

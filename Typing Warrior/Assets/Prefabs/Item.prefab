@@ -299,8 +299,10 @@ GameObject:
   - component: {fileID: 3908399624438904929}
   - component: {fileID: 2837755382827682589}
   - component: {fileID: 1000844399044654848}
+  - component: {fileID: 6954310966998391729}
   - component: {fileID: 3609542915198278941}
   - component: {fileID: 1164663008606049861}
+  - component: {fileID: 6945653992741416802}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -384,6 +386,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!225 &6954310966998391729
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887474916390280234}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &3609542915198278941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144988d3b75dff147a46c7f8be3d1bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemObjectDragger: {fileID: 6945653992741416802}
 --- !u!114 &1164663008606049861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +425,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemObject: {fileID: 3609542915198278941}
   itemImage: {fileID: 8010383987032983143}
+--- !u!114 &6945653992741416802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887474916390280234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feba69d5351e4574ba65c3cc58b38827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5482695253336473115
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,8 +666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNameText: {fileID: 861547221508693800}
   itemDescriptionText: {fileID: 5938149534276452161}
+  itemIconImage: {fileID: 0}
   scaleTween: {fileID: 8811867967280288197}
-  itemObject: {fileID: 3609542915198278941}
 --- !u!114 &8811867967280288197
 MonoBehaviour:
   m_ObjectHideFlags: 0

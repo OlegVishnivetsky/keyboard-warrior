@@ -25,7 +25,20 @@ public abstract class ItemContainer : MonoBehaviour
 
     public virtual void LoadPlayerItems(string key)
     {
-        items = SaveSystem.Instance.Load<List<ItemDetailsSO>>(key);
+        if (SaveSystem.Instance.Load<List<ItemDetailsSO>>(key) == null)
+        {
+            items = new List<ItemDetailsSO>();
+        }
+        else
+        {
+            items = SaveSystem.Instance.Load<List<ItemDetailsSO>>(key);
+        }
+
         OnItemsLoaded?.Invoke();
+    }
+
+    public virtual void SavePlayerItems(string key)
+    {
+        SaveSystem.Instance.Save<List<ItemDetailsSO>>(items, key);
     }
 }

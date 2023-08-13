@@ -6,7 +6,7 @@ public class ItemDispenser : MonoBehaviour
 {
     [SerializeField] private ItemsCollectionSO allItemsCollection;
 
-    [SerializeField] private List<ItemDetailsSO> inventoryItems;
+    private List<ItemDetailsSO> inventoryItems;
 
     public event Action<ItemDetailsSO> OnItemDispensed;
 
@@ -22,7 +22,6 @@ public class ItemDispenser : MonoBehaviour
 
     private void StaticEventHandler_OnLevelCompleted()
     {
-        Debug.Log("level complete");
         DispenseItem();
     }
 

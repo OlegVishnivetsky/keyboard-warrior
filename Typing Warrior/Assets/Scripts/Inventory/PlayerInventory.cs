@@ -4,4 +4,9 @@ public class PlayerInventory : ItemContainer
     {
         LoadPlayerItems(Settings.playerInventoryKey);
     }
+
+    private void OnApplicationQuit()
+    {
+        SavePlayerItems(Settings.playerInventoryKey);
+    }
 }

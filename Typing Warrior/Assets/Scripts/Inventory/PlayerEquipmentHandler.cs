@@ -28,6 +28,8 @@ public class PlayerEquipmentHandler : MonoBehaviour
 
     public void UpdateItemsStatModifications()
     {
+        items = SaveSystem.Instance.Load<List<ItemDetailsSO>>(Settings.playerEquipmentKey);
+
         player.ResetPlayerStats();
 
         foreach (ItemDetailsSO item in items)

@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        OnBeforePlayerInitialised?.Invoke();    
+        OnBeforePlayerInitialised?.Invoke();
         health.SetMaxHeallth(Health.GetValue());
         health.SetCurrentHealth(Health.GetValue());
     }
