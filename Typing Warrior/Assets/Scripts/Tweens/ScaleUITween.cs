@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ScaleUITween : MonoBehaviour
@@ -28,5 +29,25 @@ public class ScaleUITween : MonoBehaviour
         }
 
         rectTransform.LeanScale(Vector3.zero, duration).setEase(ease);
+    }
+
+    public void ScaleIn(Action onComplete)
+    {
+        if (LeanTween.isTweening(rectTransform))
+        {
+            return;
+        }
+
+        rectTransform.LeanScale(targetScale, duration).setEase(ease).setOnComplete(onComplete);
+    }
+
+    public void ScaleOut(Action onComplete)
+    {
+        if (LeanTween.isTweening(rectTransform))
+        {
+            return;
+        }
+
+        rectTransform.LeanScale(Vector3.zero, duration).setEase(ease).setOnComplete(onComplete);
     }
 }

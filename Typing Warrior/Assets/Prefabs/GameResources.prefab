@@ -47,5 +47,34 @@ MonoBehaviour:
   enemyMaterials:
   - {fileID: 2100000, guid: b993f9ce486947d4fae6c0749a90f5aa, type: 2}
   - {fileID: 2100000, guid: 5736636975cfc1549a63c5ad4026b23c, type: 2}
+  - {fileID: 2100000, guid: 0461e009436c5a040a8f22ebb9006d6d, type: 2}
+  - {fileID: 2100000, guid: 0152c05a74cd491438699eee866ad870, type: 2}
+  - {fileID: 2100000, guid: 0137c50b7b7c8a246b2bac12c1ad4b33, type: 2}
+  - {fileID: 2100000, guid: 0b1108427f3f26a4a9a42b75cfbfef67, type: 2}
+  - {fileID: 2100000, guid: 582d41b9bb4086340a6482880c830e92, type: 2}
+  - {fileID: 2100000, guid: 9bca20f18d5c8c74dac9f58377220615, type: 2}
+  - {fileID: 2100000, guid: d6e12e8a51c365c4dbde4bc8c785466e, type: 2}
+  - {fileID: 2100000, guid: efb2a4624681a894c93a88b0dd42d9b8, type: 2}
+  - {fileID: 2100000, guid: baa5e57f851f6cf4fa5b9fdf97844436, type: 2}
+  - {fileID: 2100000, guid: f7c1d36dfd9961a47a19879316ef16d9, type: 2}
+  - {fileID: 2100000, guid: 4121ff340b6cdad4ca7730dc8a70ce0b, type: 2}
+  - {fileID: 2100000, guid: 982892afd87f93c449c1b4f1e805f9cf, type: 2}
+  - {fileID: 2100000, guid: 56b7c2ec18479024aa132d3ce6bf8af2, type: 2}
+  - {fileID: 2100000, guid: 1db95e34733d1824eb5ca4a7a9e29cb8, type: 2}
+  - {fileID: 2100000, guid: 6acf0b87609c4dd4e8812b469f4c1162, type: 2}
+  - {fileID: 2100000, guid: 6692417d232665a44bc79acb81e7869f, type: 2}
+  - {fileID: 2100000, guid: 6bff8cf3ed1a60d45af5d13bfb5b4ff0, type: 2}
+  - {fileID: 2100000, guid: 72a05798571ddd94cb6058a41406896a, type: 2}
+  - {fileID: 2100000, guid: 5d74120320e728a409315fcc9521be19, type: 2}
   - {fileID: 2100000, guid: 0115cc1a1c91a96478fd9a1e67f22e83, type: 2}
+  - {fileID: 2100000, guid: 300e6f265eb05894ca5203d6851f6e50, type: 2}
   - {fileID: 2100000, guid: 3de17dc366651914e84d3cad71009a3c, type: 2}
+  playerTakeDamageSound: {fileID: 8300000, guid: 35f3324d25da9d14481c30df86786deb, type: 3}
+  playerAttackSound: {fileID: 8300000, guid: 35f3324d25da9d14481c30df86786deb, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: 805074ad69ae56141bdb57f40b11cafe, type: 3}
+  levelCompleteMusic: {fileID: 0}
+  gameSceneMusicList:
+  - {fileID: 8300000, guid: c049a399ae779c4468a5fac3cf85df13, type: 3}
+  - {fileID: 8300000, guid: e0abcde92e05a3046baa5ab0aa109578, type: 3}
+  - {fileID: 8300000, guid: c93045ab93f17da49b510c67af016b59, type: 3}
+  - {fileID: 8300000, guid: 83dba260c2d69574ea19c6adb9c9a385, type: 3}

@@ -60,6 +60,8 @@ public class PlayerTyping : MonoBehaviour
 
             attackEffect.TriggerAttackEffectAnimation();
             currentEnemy.GetEnemyAttack().ResetDelayBeforeAttack();
+
+            AudioController.Instance.PlaySoundEffect(GameResources.Instance.playerAttackSound);
         }
     }
 
