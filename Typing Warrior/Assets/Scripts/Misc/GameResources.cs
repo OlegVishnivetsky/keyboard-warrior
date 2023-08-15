@@ -7,11 +7,10 @@ public class GameResources : SingletonMonobehaviour<GameResources>
     public List<Material> enemyMaterials;
 
     [Header("SOUND EFFECTS")]
-    public AudioClip playerTakeDamageSound;
-    public AudioClip playerAttackSound;
+    public SoundEffectSO playerTakeDamageSound;
+    public SoundEffectSO playerAttackSound;
 
     [Header("MUSIC")]
     public AudioClip mainMenuMusic;
-    public AudioClip levelCompleteMusic;
     public List<AudioClip> gameSceneMusicList;
 }

@@ -51,6 +51,8 @@ public class PlayerTyping : MonoBehaviour
         else
         {
             player.GetPlayerHealth().TakeDamage(currentEnemy.GetEnemyDetails().damage);
+
+            AudioController.Instance.PlaySoundEffect(GameResources.Instance.playerTakeDamageSound);
         }
 
         if (IsPlayerWordCorrect())

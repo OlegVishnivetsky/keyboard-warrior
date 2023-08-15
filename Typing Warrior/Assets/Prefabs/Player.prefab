@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1d1cf216abd30478af35f019cf8f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBaseHealth: 100
-  playerBaseDamage: 10
-  playerBaseArmor: 100
+  playerBaseHealth: 5
+  playerBaseDamage: 1
+  playerBaseArmor: 1
 --- !u!114 &94170738764733668
 MonoBehaviour:
   m_ObjectHideFlags: 0
