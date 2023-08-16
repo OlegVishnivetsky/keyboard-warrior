@@ -13,14 +13,16 @@ public abstract class ItemContainer : MonoBehaviour
         return items;
     }
 
-    public virtual void AddItem(ItemDetailsSO itemToAdd)
+    public virtual bool AddItem(ItemDetailsSO itemToAdd)
     {
         items.Add(itemToAdd);
+        return true;
     }
 
-    public virtual void RemoveItem(ItemDetailsSO itemToRemove)
+    public virtual bool RemoveItem(ItemDetailsSO itemToRemove)
     {
         items.Remove(itemToRemove);
+        return true;
     }
 
     public virtual void LoadPlayerItems(string key)

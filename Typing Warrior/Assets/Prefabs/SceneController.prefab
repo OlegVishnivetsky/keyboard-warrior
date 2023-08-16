@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6218295019918808817}
   - component: {fileID: 3785131962769839056}
+  - component: {fileID: 1060805813}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -44,3 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c46fd20222f31347b1cd28d87681b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneTransitionTween: {fileID: 1060805813}
+--- !u!114 &1060805813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624720834194344071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e11bd3baa436449bb0929dbfa753c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionCircleTransform: {fileID: 0}
+  duration: 0.6
+  ease: 1

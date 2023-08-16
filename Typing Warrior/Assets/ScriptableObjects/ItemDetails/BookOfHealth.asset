@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f1867753c1d9742aaafa639a736d5e, type: 3}
   m_Name: BookOfHealth
   m_EditorClassIdentifier: 
-  itemName: BookOfHealth
-  description: '+20 to max health
+  itemName: Book Of Health
+  description: '+1 to max health
 
 '
   iconPath: Textures/ItemIcons/16x16/book_02a
   itemStatModifications:
-  - value: 20
+  - value: 1
     statToModify: 0
     modificationType: 0

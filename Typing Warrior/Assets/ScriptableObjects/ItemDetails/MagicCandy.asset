@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f1867753c1d9742aaafa639a736d5e, type: 3}
   m_Name: MagicCandy
   m_EditorClassIdentifier: 
-  itemName: MagicCandy
-  description: '+10 to max health
+  itemName: Magic Candy
+  description: '+1 to max health
 
 '
   iconPath: Textures/ItemIcons/16x16/candy_02a
   itemStatModifications:
-  - value: 10
+  - value: 1
     statToModify: 0
     modificationType: 0

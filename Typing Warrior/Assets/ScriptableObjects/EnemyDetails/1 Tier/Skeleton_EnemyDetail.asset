@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton_EnemyDetail
   m_EditorClassIdentifier: 
   enemyName: Skeleton
-  health: 1
-  damage: 1
+  health: 2
+  damage: 2
   delayBeforeAttack: 10
   animatorController: {fileID: 9100000, guid: 7052c8b4bb06f644ea75e62b72afedbd, type: 2}

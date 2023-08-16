@@ -16,14 +16,18 @@ public class ItemContainerZone : MonoBehaviour, IDropHandler
 
         if (dropedItem != null)
         {
-            dropedItem.gameObject.transform.SetParent(contentTransform);
-
             if (itemContainerToAddItem.GetItems().Contains(dropedItem.GetItemDetails()))
             {
                 return;
             }
 
-            itemContainerToAddItem.AddItem(dropedItem.GetItemDetails());
+            if (!itemContainerToAddItem.AddItem(dropedItem.GetItemDetails()))
+            {
+                return;
+            }
+
+            dropedItem.gameObject.transform.SetParent(contentTransform);
+
             itemContainerToRemoveItem.RemoveItem(dropedItem.GetItemDetails());
         }
     }

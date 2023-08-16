@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemObjectDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -7,8 +8,11 @@ public class ItemObjectDragger : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     private Canvas canvas;
     private CanvasGroup canvasGroup;
+    private Image[] imageComponents;
 
     private Camera cameraCache;
+
+    private Vector3 beginDragPosition;
 
     private void Awake()
     {
@@ -16,13 +20,19 @@ public class ItemObjectDragger : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
+        imageComponents = GetComponentsInChildren<Image>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        canvas = GetComponentInParent<Canvas>();
+
+        beginDragPosition = transform.position;
+
+        canvas.sortingOrder = 2;
         IsDragging = true;
         canvasGroup.blocksRaycasts = false;
-        transform.SetParent(canvas.transform);
+        DisableImageComponentsMaskable();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -35,7 +45,27 @@ public class ItemObjectDragger : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        canvas.sortingOrder = 1;
         IsDragging = false;
         canvasGroup.blocksRaycasts = true;
+        EnableImageComponentsMaskable();
+
+        transform.position = beginDragPosition;
+    }
+
+    private void EnableImageComponentsMaskable()
+    {
+        foreach (Image image in imageComponents)
+        {
+            image.maskable = true;
+        }
+    }
+
+    private void DisableImageComponentsMaskable()
+    {
+        foreach (Image image in imageComponents)
+        {
+            image.maskable = false;
+        }
     }
 }

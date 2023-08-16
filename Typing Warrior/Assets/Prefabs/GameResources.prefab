@@ -71,8 +71,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3de17dc366651914e84d3cad71009a3c, type: 2}
   playerTakeDamageSound: {fileID: 11400000, guid: 07dce6cbf6b5362458e97c6d53cacead, type: 2}
   playerAttackSound: {fileID: 11400000, guid: b62664581bff1144a8b2c49d0a24414a, type: 2}
-  mainMenuMusic: {fileID: 8300000, guid: 805074ad69ae56141bdb57f40b11cafe, type: 3}
-  levelCompleteMusic: {fileID: 0}
+  mainMenuMusic: {fileID: 8300000, guid: 83dba260c2d69574ea19c6adb9c9a385, type: 3}
   gameSceneMusicList:
   - {fileID: 8300000, guid: c049a399ae779c4468a5fac3cf85df13, type: 3}
   - {fileID: 8300000, guid: e0abcde92e05a3046baa5ab0aa109578, type: 3}

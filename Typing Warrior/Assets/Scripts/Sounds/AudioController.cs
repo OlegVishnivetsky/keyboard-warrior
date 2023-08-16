@@ -83,6 +83,7 @@ public class AudioController : SingletonMonobehaviour<AudioController>
 
     public void ChangeMusicClipAndPlay(AudioClip musicClip)
     {
+        Debug.Log("Change music");
         musicAudioSource.clip = musicClip;
         musicAudioSource.Play();
     }

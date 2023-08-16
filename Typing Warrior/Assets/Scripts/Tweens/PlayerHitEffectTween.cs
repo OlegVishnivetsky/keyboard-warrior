@@ -41,7 +41,8 @@ public class PlayerHitEffectTween : MonoBehaviour
     {
         if (LeanTween.isTweening(rectTransform))
         {
-            return;
+            LeanTween.cancel(rectTransform);
+            LeanTween.alpha(rectTransform, 0f, 0f);
         }
 
         float duration = totalHitEffectDuration / 2f;

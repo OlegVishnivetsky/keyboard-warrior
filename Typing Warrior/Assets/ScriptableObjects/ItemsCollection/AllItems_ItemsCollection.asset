@@ -13,5 +13,30 @@ MonoBehaviour:
   m_Name: AllItems_ItemsCollection
   m_EditorClassIdentifier: 
   items:
+  - {fileID: 11400000, guid: b5e8e02a3bce3d347bd59bcde90087b5, type: 2}
+  - {fileID: 11400000, guid: 03d18a3568ccf1f48af4a1bfe90a3959, type: 2}
   - {fileID: 11400000, guid: 5451b4b8559bd4543aae69b9e67ff4c8, type: 2}
+  - {fileID: 11400000, guid: 47d41c8bb614a8f4fb1899a1caf9d525, type: 2}
+  - {fileID: 11400000, guid: 12c4b6151fac51a4da908809422c3992, type: 2}
+  - {fileID: 11400000, guid: 182419e737893e54487aadec8217ad75, type: 2}
+  - {fileID: 11400000, guid: 507c9891ee2bc4c448efd64efa5bba7b, type: 2}
+  - {fileID: 11400000, guid: e7839c2207a2a7544992d35f1975462b, type: 2}
+  - {fileID: 11400000, guid: 80a02cc01aade394ea9b38d95a279802, type: 2}
+  - {fileID: 11400000, guid: af92814b4cb4b7242a98564c3dd1517c, type: 2}
+  - {fileID: 11400000, guid: 9d25efccf2dd72e4ea7d20a722ea9672, type: 2}
+  - {fileID: 11400000, guid: 44431709370d443449b0fc8dfcc14baf, type: 2}
+  - {fileID: 11400000, guid: f00f2c3147d254d459b433f621605676, type: 2}
+  - {fileID: 11400000, guid: a7b3d71758ebe6741a989c677e5c3fa3, type: 2}
+  - {fileID: 11400000, guid: c946d354b089ff34097c0f587ccf4496, type: 2}
+  - {fileID: 11400000, guid: 071f0c232f3fd1f4d8e40bd418836d71, type: 2}
+  - {fileID: 11400000, guid: 4f1fff5c8f4433244a0943ba487816d1, type: 2}
+  - {fileID: 11400000, guid: 88064e24a2c176848863bfa1e73c5ab1, type: 2}
+  - {fileID: 11400000, guid: dfdbecdd7f20ee444ace861f8360d35e, type: 2}
+  - {fileID: 11400000, guid: 5a8af9df916984b4b8eb0bbe979750d2, type: 2}
   - {fileID: 11400000, guid: e3d4d4388b99e9449b12941ca677e3fa, type: 2}
+  - {fileID: 11400000, guid: 2d350eb138d84574a9435b40484865fa, type: 2}
+  - {fileID: 11400000, guid: 56349d49aad8903468d93ad8150a5488, type: 2}
+  - {fileID: 11400000, guid: 2cc06146dfb38c7439f413af3f0c5b81, type: 2}
+  - {fileID: 11400000, guid: 25b29b992fc9e05439ae158a28cbb121, type: 2}
+  - {fileID: 11400000, guid: 877bcfea2435654458f1db78cf47fa00, type: 2}
+  - {fileID: 11400000, guid: 5453cf90e05b8d44d8e8883924b7c95d, type: 2}

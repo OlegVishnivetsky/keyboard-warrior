@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    [SerializeField] private SceneTransitionTween sceneTransitionTween;
+
     public static event Action<string> OnSceneChanged;
 
     private void Start()
@@ -13,19 +15,26 @@ public class SceneController : MonoBehaviour
 
     public void LoadMainMenuScene()
     {
-        SceneManager.LoadScene(Settings.mainMenuScene);
+        sceneTransitionTween.TransitionScene(() =>
+        {
+            SceneManager.LoadScene(Settings.mainMenuScene);
+        });     
     }
 
     public void LoadInventoryScene()
     {
-        SceneManager.LoadScene(Settings.inventoryScene);
-        OnSceneChanged?.Invoke(Settings.inventoryScene);
+        sceneTransitionTween.TransitionScene(() =>
+        {
+            SceneManager.LoadScene(Settings.inventoryScene);
+        });
     }
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene(Settings.gameScene);
-        OnSceneChanged?.Invoke(Settings.gameScene);
+        sceneTransitionTween.TransitionScene(() =>
+        {
+            SceneManager.LoadScene(Settings.gameScene);
+        });
     }
 
     public void QuitGame()
