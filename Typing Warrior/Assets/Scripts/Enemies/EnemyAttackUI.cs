@@ -30,7 +30,7 @@ public class EnemyAttackUI : MonoBehaviour
 
     private void QueueOfEnemies_OnNextEnemyActivated()
     {
-        attackText.text = queueOfEnemies.GetCurrentEnemy().GetEnemyDetails().damage.ToString();
+        attackText.text = queueOfEnemies.GetCurrentEnemy().GetEnemyDetails().baseDamage.ToString();
     }
 
     private void EnemyAttack_OnDelayBeforeAttackAssigned(float value)

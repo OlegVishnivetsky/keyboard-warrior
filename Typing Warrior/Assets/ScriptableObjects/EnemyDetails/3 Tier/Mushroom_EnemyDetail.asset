@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mushroom_EnemyDetail
   m_EditorClassIdentifier: 
   enemyName: Evil Mushroom
-  health: 4
-  damage: 3
-  delayBeforeAttack: 8
+  baseHealth: 5
+  baseDamage: 6
+  delayBeforeAttack: 7
   animatorController: {fileID: 9100000, guid: 9f15ad2dfb202dd46816f1ae0907d589, type: 2}

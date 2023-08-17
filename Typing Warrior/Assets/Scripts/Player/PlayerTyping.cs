@@ -50,7 +50,7 @@ public class PlayerTyping : MonoBehaviour
         }
         else
         {
-            player.GetPlayerHealth().TakeDamage(currentEnemy.GetEnemyDetails().damage);
+            player.GetPlayerHealth().TakeDamage(currentEnemy.GetEnemyDetails().baseDamage);
 
             AudioController.Instance.PlaySoundEffect(GameResources.Instance.playerTakeDamageSound);
         }

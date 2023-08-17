@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3599427827788169670}
   spriteRenderer: {fileID: 3599427827788169671}
+  levelController: {fileID: 0}
   appearanceTween: {fileID: 6919638733992229906}
 --- !u!114 &6421794309713421626
 MonoBehaviour:
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   queueOfEnemies: {fileID: 0}
   playerHealth: {fileID: 0}
+  levelController: {fileID: 0}
 --- !u!114 &1567752441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +208,7 @@ Animator:
   m_GameObject: {fileID: 3599427827788169668}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f15ad2dfb202dd46816f1ae0907d589, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7052c8b4bb06f644ea75e62b72afedbd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

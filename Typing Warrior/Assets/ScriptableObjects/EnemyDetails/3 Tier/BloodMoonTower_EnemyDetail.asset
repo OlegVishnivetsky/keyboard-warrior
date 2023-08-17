@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15eb2dae8e9ac51488c63b98ebbbcb90, type: 3}
   m_Name: BloodMoonTower_EnemyDetail
   m_EditorClassIdentifier: 
-  enemyName: Axe Demon
-  health: 3
-  damage: 4
-  delayBeforeAttack: 13
+  enemyName: Blood Moon Tower
+  baseHealth: 4
+  baseDamage: 5
+  delayBeforeAttack: 8
   animatorController: {fileID: 9100000, guid: d61a12ba095579a48840399cec5c4732, type: 2}

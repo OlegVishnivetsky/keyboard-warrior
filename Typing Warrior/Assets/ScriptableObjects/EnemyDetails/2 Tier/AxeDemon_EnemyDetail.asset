@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AxeDemon_EnemyDetail
   m_EditorClassIdentifier: 
   enemyName: Axe Demon
-  health: 4
-  damage: 3
+  baseHealth: 3
+  baseDamage: 4
   delayBeforeAttack: 13
   animatorController: {fileID: 9100000, guid: 1ba437b827862aa4d990ca72ee226b66, type: 2}

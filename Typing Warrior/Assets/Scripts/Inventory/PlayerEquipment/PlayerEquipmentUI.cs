@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerEquipmentUI : MonoBehaviour
 {
-    [Header("TEXT COMPONENTS")]
+    [Header("UI COMPONENTS")]
     [SerializeField] private TextMeshProUGUI playerEquipmentText;
+    [SerializeField] private Button backToMenuButton;
 
     [Header("OTHER COMPONENTS")]
     [SerializeField] private PlayerEquipment playerEquipment;
@@ -17,6 +19,14 @@ public class PlayerEquipmentUI : MonoBehaviour
     private void OnDisable()
     {
         playerEquipment.OnCurrentNumberOfItemsChanged -= PlayerEquipment_OnItemAdded;
+    }
+
+    private void Start()
+    {
+        backToMenuButton.onClick.AddListener(() =>
+        {
+            playerEquipment.SavePlayerItems(Settings.playerEquipmentKey);
+        });
     }
 
     private void PlayerEquipment_OnItemAdded(int currentNumberOfItems)

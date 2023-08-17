@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FrostGuardian_EnemyDetail
   m_EditorClassIdentifier: 
   enemyName: Frost Guardian
-  health: 4
-  damage: 5
-  delayBeforeAttack: 12
+  baseHealth: 5
+  baseDamage: 5
+  delayBeforeAttack: 7
   animatorController: {fileID: 9100000, guid: c25e47e876c1c924caee8d8785d9d171, type: 2}

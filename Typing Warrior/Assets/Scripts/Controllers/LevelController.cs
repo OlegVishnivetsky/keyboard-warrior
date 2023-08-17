@@ -40,6 +40,11 @@ public class LevelController : MonoBehaviour
         SaveSystem.Instance.Save<int>(currentLevel, Settings.currentLevelKey);
     }
 
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
     public int GetNumberOfEnemiesPerLevel()
     {
         return numberOfEnemiesPerLevel;

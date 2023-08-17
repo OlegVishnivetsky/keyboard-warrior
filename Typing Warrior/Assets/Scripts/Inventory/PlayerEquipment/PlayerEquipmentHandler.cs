@@ -32,6 +32,11 @@ public class PlayerEquipmentHandler : MonoBehaviour
 
         player.ResetPlayerStats();
 
+        if (items == null)
+        {
+            return;
+        }
+
         foreach (ItemDetailsSO item in items)
         {
             foreach (ItemStatModification itemStatModification in item.itemStatModifications)

@@ -6,10 +6,10 @@ public class EnemyDetailsSO : ScriptableObject
     public string enemyName;
 
     [Space(5)]
-    public int health;
+    public int baseHealth;
 
     [Space(5)]
-    public int damage;
+    public int baseDamage;
     public float delayBeforeAttack;
 
     [Space(5)]

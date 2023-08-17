@@ -55,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
             yield return null;
         }
 
-        playerHealth.TakeDamage(queueOfEnemies.GetCurrentEnemy().GetEnemyDetails().damage);
+        playerHealth.TakeDamage(queueOfEnemies.GetCurrentEnemy().GetEnemyDetails().baseDamage);
 
         AudioController.Instance.PlaySoundEffect(GameResources.Instance.playerTakeDamageSound);
 

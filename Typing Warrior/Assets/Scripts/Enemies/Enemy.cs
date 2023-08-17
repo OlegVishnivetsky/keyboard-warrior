@@ -8,10 +8,13 @@ public class Enemy : MonoBehaviour
     [Header("MAIN COMPONENTS")]
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private LevelController levelController;
 
     private EnemyDetailsSO enemyDetails;
     private EnemyAttack enemyAttack;
-    private Health health;
+    private Health enemyHealth;
+
+    private int healthAmount;
 
     [HideInInspector] public EnemyAppearanceTween appearanceTween;
 
@@ -21,18 +24,18 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        health = GetComponent<Health>();
+        enemyHealth = GetComponent<Health>();
         enemyAttack = GetComponent<EnemyAttack>();
     }
 
     private void OnEnable()
     {
-        health.OnHealthChanged += Health_OnHealthChanged;
+        enemyHealth.OnHealthChanged += Health_OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        health.OnHealthChanged -= Health_OnHealthChanged;
+        enemyHealth.OnHealthChanged -= Health_OnHealthChanged;
     }
 
     private void Start()
@@ -47,8 +50,10 @@ public class Enemy : MonoBehaviour
 
     public void SetUpEnemyHealth()
     {
-        health.SetMaxHeallth(enemyDetails.health);
-        health.SetCurrentHealth(enemyDetails.health);
+        healthAmount = enemyDetails.baseHealth + Mathf.FloorToInt(levelController.GetCurrentLevel() * 0.2f);
+
+        enemyHealth.SetMaxHeallth(healthAmount);
+        enemyHealth.SetCurrentHealth(healthAmount);
     }
 
     public EnemyDetailsSO GetEnemyDetails()

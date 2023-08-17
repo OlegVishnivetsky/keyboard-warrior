@@ -1,16 +1,9 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using UnityEngine;
 
 public class WordCollection : SingletonMonobehaviour<WordCollection>
 {
-    private List<string> words = new List<string>();
-
-    private void Start()
-    {
-        words = File.ReadAllLines(Application.streamingAssetsPath + "/Words.txt").ToList<string>();
-    }
+    [SerializeField] private List<string> words = new List<string>();
 
     public string GetRandomWordFromCollection()
     {

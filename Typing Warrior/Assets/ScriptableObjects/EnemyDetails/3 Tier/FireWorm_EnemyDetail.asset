@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireWorm_EnemyDetail
   m_EditorClassIdentifier: 
   enemyName: Fire Worm
-  health: 4
-  damage: 3
-  delayBeforeAttack: 11
+  baseHealth: 4
+  baseDamage: 5
+  delayBeforeAttack: 9
   animatorController: {fileID: 9100000, guid: 5403560e2c0849e4a84f28d5f9334ccf, type: 2}

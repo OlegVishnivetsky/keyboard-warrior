@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EvilWizard_EnemyDetail
   m_EditorClassIdentifier: 
   enemyName: Evil Wizard
-  health: 4
-  damage: 3
-  delayBeforeAttack: 9
+  baseHealth: 2
+  baseDamage: 6
+  delayBeforeAttack: 8
   animatorController: {fileID: 9100000, guid: 0efd2325abe17cb46b03c227410bd929, type: 2}

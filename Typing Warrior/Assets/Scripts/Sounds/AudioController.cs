@@ -83,7 +83,12 @@ public class AudioController : SingletonMonobehaviour<AudioController>
 
     public void ChangeMusicClipAndPlay(AudioClip musicClip)
     {
-        Debug.Log("Change music");
+        if (musicAudioSource.clip == GameResources.Instance.mainMenuMusic
+            && musicClip == GameResources.Instance.mainMenuMusic)
+        {
+            return;
+        }
+
         musicAudioSource.clip = musicClip;
         musicAudioSource.Play();
     }
