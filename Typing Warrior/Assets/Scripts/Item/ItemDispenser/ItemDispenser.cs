@@ -9,6 +9,7 @@ public class ItemDispenser : MonoBehaviour
     private List<ItemDetailsSO> inventoryItems;
 
     public event Action<ItemDetailsSO> OnItemDispensed;
+    public event Action<bool> OnItemDispenseSuccessful;
 
     private void OnEnable()
     {
@@ -22,7 +23,15 @@ public class ItemDispenser : MonoBehaviour
 
     private void StaticEventHandler_OnLevelCompleted()
     {
-        DispenseItem();
+        if (ProbabilitiesController.CheckProbability(35))
+        {
+            DispenseItem();
+            OnItemDispenseSuccessful?.Invoke(true);
+        }
+        else
+        {
+            OnItemDispenseSuccessful?.Invoke(false);
+        }
     }
 
     public void DispenseItem()
@@ -41,7 +50,6 @@ public class ItemDispenser : MonoBehaviour
         ItemDetailsSO itemToDispense = allItemsCollection.items[randomItemNumber];
 
         OnItemDispensed?.Invoke(itemToDispense);
-        Debug.Log("item dispensed");
 
         inventoryItems.Add(itemToDispense);
 

@@ -11,11 +11,21 @@ public class ItemDispenserUI : MonoBehaviour
     private void OnEnable()
     {
         itemDispenser.OnItemDispensed += ItemDispenser_OnItemDispensed;
+        itemDispenser.OnItemDispenseSuccessful += ItemDispenser_OnItemDispenseSuccessful;
     }
 
     private void OnDisable()
     {
         itemDispenser.OnItemDispensed -= ItemDispenser_OnItemDispensed;
+        itemDispenser.OnItemDispenseSuccessful -= ItemDispenser_OnItemDispenseSuccessful;
+    }
+
+    private void ItemDispenser_OnItemDispenseSuccessful(bool isSuccessful)
+    {
+        if (!isSuccessful)
+        {
+            levelCompletePanelScaleTween.ScaleIn();
+        }
     }
 
     private void ItemDispenser_OnItemDispensed(ItemDetailsSO item)

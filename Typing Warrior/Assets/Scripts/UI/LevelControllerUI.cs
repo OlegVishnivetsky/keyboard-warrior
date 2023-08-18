@@ -16,6 +16,11 @@ public class LevelControllerUI : MonoBehaviour
         levelController.OnNumberOfEnemiesChanged += LevelController_OnNumberOfEnemiesChanged;
     }
 
+    private void OnDisable()
+    {
+        levelController.OnNumberOfEnemiesChanged -= LevelController_OnNumberOfEnemiesChanged;
+    }
+
     private void LevelController_OnNumberOfEnemiesChanged(int currentNumberOfEnemies, int numberOfEnemiesPerLevel)
     {
         UpdateProgressSliderValues(currentNumberOfEnemies, numberOfEnemiesPerLevel);
