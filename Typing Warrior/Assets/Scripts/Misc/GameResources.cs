@@ -9,6 +9,7 @@ public class GameResources : SingletonMonobehaviour<GameResources>
     [Header("SOUND EFFECTS")]
     public SoundEffectSO playerTakeDamageSound;
     public SoundEffectSO playerAttackSound;
+    public SoundEffectSO clickSound;
 
     [Header("MUSIC")]
     public AudioClip mainMenuMusic;

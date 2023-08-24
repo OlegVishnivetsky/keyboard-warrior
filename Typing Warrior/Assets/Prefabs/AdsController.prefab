@@ -63,4 +63,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   androidAdUnitId: Interstitial_Android
   iOsAdUnitId: Interstitial_iOS
-  adsShowingProbability: 15
+  adsShowingProbability: 50

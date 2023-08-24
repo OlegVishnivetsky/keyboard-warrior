@@ -9,6 +9,7 @@ public class Key : MonoBehaviour, IPointerClickHandler
     [SerializeField] private char keyCharacter;
     [SerializeField] private Keyboard keyboard;
 
+    public event Action OnKeyPressed;
     public event Action<char> OnKeyCharacterSetted;
 
     private void Awake()
@@ -29,6 +30,10 @@ public class Key : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        OnKeyPressed?.Invoke();
+
+        AudioController.Instance.PlaySoundEffect(GameResources.Instance.clickSound);
+
         keyboard.AddKeyCharacterToInput(keyCharacter);
     }
 }

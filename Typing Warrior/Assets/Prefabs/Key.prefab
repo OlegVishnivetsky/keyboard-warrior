@@ -107,6 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCharacterText: {fileID: 424023744350534856}
+  imageComponent: {fileID: 424023743196919131}
+  normalColor: {r: 0.8666667, g: 0.8666667, b: 0.8666667, a: 1}
+  pressedColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+  colorChangeDuration: 0.15
 --- !u!114 &2995895174266720004
 MonoBehaviour:
   m_ObjectHideFlags: 0
