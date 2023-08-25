@@ -9347,7 +9347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8aff18741d30ed94f9f798fae70762b5, type: 2}
   m_sharedMaterial: {fileID: 798876838836679816, guid: 8aff18741d30ed94f9f798fae70762b5, type: 2}
@@ -12478,10 +12478,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6040273861337175712, guid: 159525a19a2207f439db8e2c5faddf24, type: 3}
-      propertyPath: testMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6040273861337175713, guid: 159525a19a2207f439db8e2c5faddf24, type: 3}
       propertyPath: m_Name
       value: AdsController

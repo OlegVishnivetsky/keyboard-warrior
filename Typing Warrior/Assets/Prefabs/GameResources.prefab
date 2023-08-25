@@ -74,6 +74,7 @@ MonoBehaviour:
   clickSound: {fileID: 11400000, guid: 7fca84dc9304d8242ab791c116a71184, type: 2}
   mainMenuMusic: {fileID: 8300000, guid: cbce7ba13637c3d43b013361712aa70a, type: 3}
   gameSceneMusicList:
-  - {fileID: 8300000, guid: c049a399ae779c4468a5fac3cf85df13, type: 3}
-  - {fileID: 8300000, guid: e0abcde92e05a3046baa5ab0aa109578, type: 3}
   - {fileID: 8300000, guid: c93045ab93f17da49b510c67af016b59, type: 3}
+  - {fileID: 8300000, guid: e0abcde92e05a3046baa5ab0aa109578, type: 3}
+  - {fileID: 8300000, guid: 31c7f1d561a469141a70942ecf554be0, type: 3}
+  - {fileID: 8300000, guid: c049a399ae779c4468a5fac3cf85df13, type: 3}
